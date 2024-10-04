@@ -1,0 +1,59 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {
+    char rua[51];
+    int numero;
+    char cidade[30];
+    int bairro[30];
+
+}Endereco;
+
+
+typedef struct {
+    char nome[51];
+    int idade;
+    float peso;
+    float altura;
+    Endereco endereco;
+
+    }Aluno;//estrutura aluno
+
+int main(){
+
+    int idade = 18;
+    Aluno meuAluno = {"Rosiberto",38,83,1,85};
+    Aluno outroAluno;
+    Aluno copiaAluno;
+    Aluno turma[5];
+
+    strcpy(outroAluno.nome,"ROosiberta");
+    outroAluno.idade= 32;
+    outroAluno.peso = 62;
+    outroAluno.altura = 1.72;
+    strcpy(outroAluno.endereco.rua,"Rua maria herbella reis");
+    outroAluno.endereco.numero = 625;
+    strcpy(outroAluno.endereco.cidade,"Apucarana");
+
+    for(int i =0; i < 5;i++)
+    {
+        setbuf(stdin,NULL);
+        printf("Digite o nome");
+        fgets(turma[i].nome,50, stdin);
+        turma[i].nome[strcspn(turma[i].nome,"\n")]='\0';
+        printf("digite a idade:");
+        scanf("%d",&turma[i].idade);
+        printf("digite o peso:");
+        scanf("%f",&turma[i].peso);
+        printf("digite a altura:");
+        scanf("%f",&turma[i].altura);
+    }//for
+
+    copiaAluno = meuAluno;
+
+
+
+
+    return 0;
+}
